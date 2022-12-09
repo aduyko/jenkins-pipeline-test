@@ -18,7 +18,13 @@ class DownstreamPipelineTest extends BasePipelineTest {
   void testDownstreamPipelineNoArgs() throws Exception {
     downstreamPipeline()
 
-    printCallStack()
+    def echoCalls = helper.callStack.findAll { it.methodName == "echo" }
+
+    assertNotNull(echoCalls)
+    assert { echoCalls.size() == 2 }
+    assertEquals(echoCalls[1].args[0], "some_job")
+
+    // printCallStack()
   }
 
   @Test
@@ -27,11 +33,12 @@ class DownstreamPipelineTest extends BasePipelineTest {
       num: this.TEST_NUM
     ])
 
-    def echoCall = helper.callStack.find { it.methodName == "echo" }
+    def echoCalls = helper.callStack.findAll { it.methodName == "echo" }
 
-    // assertNotNull(echoCall)
-    // assert { echoCall.args.size() == 1 }
-    // assertEquals(echoCall.args[0], MathUtil.addOne(this.TEST_NUM).toString())
+    assertNotNull(echoCalls)
+    assert { echoCalls.args.size() == 2 }
+    assertEquals(echoCalls[0].args[0], this.TEST_NUM.toString())
+    assertEquals(echoCalls[1].args[0], "some_job")
 
     // printCallStack()
   }

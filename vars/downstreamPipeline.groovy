@@ -6,6 +6,7 @@ def call(Map conf = [:]) {
 
   node {
     stage('Build') {
+      echo("${num}")
       def job = build(
         job: DOWNSTREAM_JOB,
         parameters: [
