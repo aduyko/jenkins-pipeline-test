@@ -9,7 +9,7 @@ def call(Map conf = [:]) {
       def job = build(
         job: DOWNSTREAM_JOB,
         parameters: [
-          string(name: "NUM", value: num.toInteger())
+          string(name: "NUM", value: "${num}")
         ]
       )
       echo(job.getProjectName())

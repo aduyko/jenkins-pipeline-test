@@ -5,7 +5,7 @@ def call(Map conf = [:]) {
 
   properties([
     parameters([
-      string(name: "NUM", defaultValue: num, description: "Number to increase")
+      string(name: "NUM", defaultValue: "${num}", description: "Number to increase")
     ])
   ])
 
