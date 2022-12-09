@@ -25,13 +25,14 @@ class TerraformPipelineTest extends BaseTest {
 
     // printCallStack()
 
+    assertNotNull(shCalls)
+    assert { shCalls.size() == 1 }
+    assertEquals(shCalls[0].args[0]["script"].toString(), "terraform plan")
+
     assertNotNull(echoCalls)
     assert { echoCalls.size() == 1 }
     assertEquals(echoCalls[0].args[0], "terraform plan")
 
-    assertNotNull(shCalls)
-    assert { shCalls.size() == 1 }
-    assertEquals(shCalls[0].args[0]["script"].toString(), "terraform plan")
   }
 
   @Test
@@ -45,12 +46,13 @@ class TerraformPipelineTest extends BaseTest {
 
     // printCallStack()
 
+    assertNotNull(shCalls)
+    assert { shCalls.size() == 1 }
+    assertEquals(shCalls[0].args[0]["script"].toString(), "terraform apply")
+
     assertNotNull(echoCalls)
     assert { echoCalls.size() == 1 }
     assertEquals(echoCalls[0].args[0], "terraform apply")
 
-    assertNotNull(shCalls)
-    assert { shCalls.size() == 1 }
-    assertEquals(shCalls[0].args[0]["script"].toString(), "terraform apply")
   }
 }

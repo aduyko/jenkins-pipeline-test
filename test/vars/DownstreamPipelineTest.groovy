@@ -2,8 +2,6 @@ import com.lesfurets.jenkins.unit.*
 import org.junit.jupiter.api.*
 import static org.junit.jupiter.api.Assertions.*
 
-import org.rearc.MathUtil
-
 class DownstreamPipelineTest extends BasePipelineTest {
   Object downstreamPipeline
   static final int TEST_NUM=3
