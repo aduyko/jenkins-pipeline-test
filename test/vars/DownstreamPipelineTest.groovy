@@ -16,14 +16,14 @@ class DownstreamPipelineTest extends BasePipelineTest {
 
   @Test
   void testDownstreamPipelineNoArgs() throws Exception {
-    downstreamPipeline.execute()
+    downstreamPipeline()
 
     printCallStack()
   }
 
   @Test
   void testDownstreamPipelineWithArg() throws Exception {
-    downstreamPipeline.execute([
+    downstreamPipeline([
       num: this.TEST_NUM
     ])
 

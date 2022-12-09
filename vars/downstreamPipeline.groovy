@@ -1,6 +1,6 @@
 import org.rearc.MathUtil
 
-def execute(Map conf = [:]) {
+def call(Map conf = [:]) {
   String DOWNSTREAM_JOB = "/math-pipeline"
   int num = conf.num ?: MathUtil.random()
 
@@ -16,5 +16,3 @@ def execute(Map conf = [:]) {
     }
   }
 }
-
-return this
