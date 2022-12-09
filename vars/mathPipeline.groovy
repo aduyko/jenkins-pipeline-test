@@ -9,7 +9,7 @@ def call(Map conf = [:]) {
 
   node {
     stage('Math') {
-      def mathResult = MathUtil.addOne(params.NUM)
+      def mathResult = MathUtil.addOne(params.NUM.toInteger())
       echo("${mathResult}")
     }
   }
